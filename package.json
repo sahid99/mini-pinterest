@@ -1,0 +1,29 @@
+{
+  "name": "mini-pinterest",
+  "version": "1.0.0",
+  "description": "minimalistic version of pinterest",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon server/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sahid99/mini-pinterest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sahid99/mini-pinterest/issues"
+  },
+  "homepage": "https://github.com/sahid99/mini-pinterest#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.11",
+    "morgan": "^1.10.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}
