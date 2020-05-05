@@ -3,7 +3,6 @@ const app = express();
 const morgan = require("morgan");
 const { mongoose } = require("./database");
 
-// const proxy = require("./controllers/proxy");
 
 //Setting 
 app.set("port", process.env.PORT || 3000);
