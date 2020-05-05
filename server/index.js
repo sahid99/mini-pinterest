@@ -13,7 +13,6 @@ app.use(morgan("dev"));
 app.use(express.json());
 
 //Routes
-app.use("/api/pexels", require("./routes/pexelsAPI"));
 app.use("/api/pin", require("./routes/pin_routes"));
 app.use(require("./routes/index"));
 
