@@ -1,8 +1,7 @@
 const express = require("express");
 const router = express.Router();
+const PinCtrl = require("../controllers/pin_controller");
 
-router.get("/", async (req, res) => {
-    res.json({"hello": "world!"});
-});
+router.get("/", PinCtrl.getPinsMain);
 
 module.exports = router;

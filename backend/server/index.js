@@ -2,12 +2,14 @@ const express = require("express");
 const app = express();
 const morgan = require("morgan");
 const { mongoose } = require("./database");
+const cors = require("cors");
 
 
 //Setting 
-app.set("port", process.env.PORT || 3000);
+app.set("port", process.env.PORT || 4000);
 
 //Middlewares
+app.use(cors());
 app.use(morgan("dev"));
 app.use(express.json());
 

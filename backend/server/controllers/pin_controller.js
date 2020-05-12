@@ -2,8 +2,13 @@ const Pin = require("../models/pin");
 const PinCtrl = {};
 const proxy = require("./proxy");
 
+PinCtrl.getPinsMain = async (req, res) => {
+    var proxy_res = await proxy.CuratedList();
+    res.json(proxy_res);
+};
+
 PinCtrl.getFromPexelsAPI = async (req, res) => {
-    var proxy_res = await proxy(req.params.query);
+    var proxy_res = await proxy.SearchPin(req.params.query);
     res.json(proxy_res);
 };
 
