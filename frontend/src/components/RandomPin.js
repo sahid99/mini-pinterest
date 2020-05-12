@@ -15,20 +15,18 @@ export default class RandomPin extends Component {
 
     render() {
         return (
-            <div className="row">
-                <div className="col-md-4">
-                    Form User
-                </div>
-                <div className="col-md-8">
-                    <ul className="list-group">
-                        {
-                            this.state.pins.map(pin =>
-                            (<PinCard
-                                imgUrl={pin.src.small}
-                                author={pin.photographer}
-                            />))
-                        }
-                    </ul>
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="card-columns">
+                            {
+                                this.state.pins.map(pin =>
+                                (
+                                    <PinCard
+                                    imgUrl={pin.src.medium}
+                                    author={pin.photographer}
+                                />))
+                            }
+                    </div>
                 </div>
             </div>
         )
