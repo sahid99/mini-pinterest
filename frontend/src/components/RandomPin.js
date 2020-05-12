@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
+import PinCard from './PinCard';
+
 export default class RandomPin extends Component {
     state = {
         pins: []
@@ -21,9 +23,10 @@ export default class RandomPin extends Component {
                     <ul className="list-group">
                         {
                             this.state.pins.map(pin =>
-                            (<li className="list-group-item list-group-item-action" key={pin.id}>
-                                {pin.src.original}
-                            </li>))
+                            (<PinCard
+                                imgUrl={pin.src.small}
+                                author={pin.photographer}
+                            />))
                         }
                     </ul>
                 </div>
