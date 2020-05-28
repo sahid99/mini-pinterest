@@ -9,7 +9,7 @@ const passport = require('passport');
 
 //Setting 
 app.set("port", process.env.PORT || 4000);
-require("./config/passport");
+require("./middlewares/passport");
 
 //Middlewares
 app.use(cors());

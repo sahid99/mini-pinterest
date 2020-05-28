@@ -1,8 +1,11 @@
 const UserCtrl = {};
 const User = require("../models/user"); 
 const jwt = require("jsonwebtoken");
-const config = require("../config/config");
 const passport = require("passport");
+const config = require("config");
+
+//Secret for token generation
+const token_secret = config.get("token_secret");
 
 UserCtrl.getUsers = (req, res) => {
     res.json({status:"works"});
@@ -22,7 +25,7 @@ UserCtrl.signin = async function (req, res, next) {
        if (err) {
            res.send(err);
        }
-       const token = jwt.sign({id:newUser._id}, config.secret);
+       const token = jwt.sign({id:newUser._id}, token_secret);
        return res.json({auth:true, token});
     });
     })(req, res);
@@ -49,7 +52,7 @@ UserCtrl.signup = async (req, res) => {
         const newUser = new User({name, email, password});
         newUser.password = await newUser.encryptPassword(password);
         await newUser.save();
-        const token = jwt.sign({id:newUser._id}, config.secret, {
+        const token = jwt.sign({id:newUser._id}, token_secret, {
             expiresIn: 60*60*24
         });
         res.json({auth: true, token});
