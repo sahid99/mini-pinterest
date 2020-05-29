@@ -9,6 +9,7 @@ import './App.css';
 import Navigation from './components/Navigation';
 import RandomPin from './components/RandomPin';
 import Search from './components/PinSearch';
+import Test from './components/Test';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <Navigation/>
       <Route path="/" exact component={RandomPin} />
       <Route path="/api/pin/search/:query" component={Search} />
+      <Route path="/test" component={Test} />
     </Router> 
 
 
