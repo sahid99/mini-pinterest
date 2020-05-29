@@ -1,10 +1,11 @@
 import React, { Component, useState, useEffect } from 'react';
 import axios from 'axios';
-import {useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
+import {signin} from '../actions';
 
 export default function Test() {
 //https://www.robinwieruch.de/react-hooks-fetch-data
-
+    const dispatch = useDispatch();
     const [data, setData] = useState({ auth: true, token: "" });
 
     useEffect(() => {
@@ -26,7 +27,7 @@ export default function Test() {
     return (
         <div>
             <h1>Hey</h1>
-            {data.token}
+            <button onClick={()=>dispatch(signin(data.token))}>Token</button>
         </div>
     )
 }

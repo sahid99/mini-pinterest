@@ -1,3 +1,3 @@
-export const SIGNIN_SUCCESS = "SIGNIN_SUCCES";
-export const SIGNUP_SUCCESS = "SIGNUP_SUCCES";
+export const SIGNIN_SUCCESS = "SIGNIN_SUCCESS";
+export const SIGNUP_SUCCESS = "SIGNUP_SUCCESS";
 export const CHECK_AUTH = "CHECK_AUTH";
