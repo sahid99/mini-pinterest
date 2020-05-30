@@ -17,7 +17,7 @@ UserCtrl.signin = async function (req, res, next) {
     passport.authenticate('local', {session: false}, (err, user, info) => {
     if (err || !user) {
         return res.status(400).json({
-            message: 'Something is not right',
+            message: 'Something is not with the login/signin',
             user   : user
         });
     }       
@@ -26,7 +26,7 @@ UserCtrl.signin = async function (req, res, next) {
            res.send(err);
        }
        const token = jwt.sign({id:newUser._id}, token_secret);
-       return res.json({auth:true, token});
+       return res.json({auth:true, token, user: email});
     });
     })(req, res);
 };
