@@ -19,7 +19,8 @@ export default class Navigation extends Component {
                     </ul>
                     <ul className="navbar-nav ml-auto">
                         <li className="nav-item"><Link className="nav-link" to="/test">Test</Link></li>
-                        <li className="nav-item active"><Link className="nav-link" to="/signin">Sign in</Link></li>
+                        <li className="nav-item active"><Link className="nav-link" to="/signin">Sign In</Link></li>
+                        <li className="nav-item active"><Link className="nav-link" to="/signup">Sign Up</Link></li>
                         <li className="nav-item active"><Link className="nav-link" to="/exit">Exit</Link></li>
                     </ul>
                 </div>

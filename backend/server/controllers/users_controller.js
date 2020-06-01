@@ -55,7 +55,7 @@ UserCtrl.signup = async (req, res) => {
         const token = jwt.sign({id:newUser._id}, token_secret, {
             expiresIn: 60*60*24
         });
-        res.json({auth: true, token});
+        res.json({auth: true, token, user: email});
     }
 };
 
