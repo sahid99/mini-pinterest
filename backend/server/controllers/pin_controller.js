@@ -12,11 +12,13 @@ PinCtrl.getFromPexelsAPI = async (req, res) => {
     res.json(proxy_res);
 };
 
+//Ruta que desaparecerá pronto
 PinCtrl.getPins = async (req, res) => {
     var pins = await Pin.find();
     res.json(pins);
 }
 
+//Ruta que desaparecerá pronto
 PinCtrl.savePin = async (req, res) => {
     const new_pin = new Pin(req.body);
     await new_pin.save();

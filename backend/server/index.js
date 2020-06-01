@@ -27,6 +27,7 @@ app.use(passport.session());
 
 //Routes
 app.use("/api/pin", require("./routes/pin_routes"));
+app.use("/api/board", require("./routes/board_routes"));
 app.use(require("./routes/index"));
 app.use("/users", require("./routes/users_routes"));
 
