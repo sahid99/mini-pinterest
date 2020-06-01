@@ -13,7 +13,7 @@ import {
     token: localStorage.getItem('token'),
     isAuthenticated: null,
     isLoading: false,
-    user: null
+    user: localStorage.getItem("user")
   };
   
   export default function(state = initialState, action) {
@@ -33,6 +33,7 @@ import {
       case LOGIN_SUCCESS:
       case REGISTER_SUCCESS:
         localStorage.setItem('token', action.payload.token);
+        localStorage.setItem("user", action.payload.user);
         return {
           ...state,
           ...action.payload,
@@ -44,6 +45,7 @@ import {
       case LOGOUT_SUCCESS:
       case REGISTER_FAIL:
         localStorage.removeItem('token');
+        localStorage.removeItem("user");
         return {
           ...state,
           token: null,

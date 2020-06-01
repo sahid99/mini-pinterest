@@ -1,0 +1,13 @@
+.round-input{
+    border-radius: 25px;
+    /* border: 2px solid #E60023; */
+    padding: 20px; 
+    width: 300px;
+    height: 15px;    
+}
+
+.card-border{
+    border-radius: 25px;
+    border: 2px solid #555555;
+    padding: 20px; 
+}
