@@ -16,10 +16,7 @@ UserCtrl.signin = async function (req, res, next) {
     const newUser = await User.findOne({email:email});
     passport.authenticate('local', {session: false}, (err, user, info) => {
     if (err || !user) {
-        return res.status(400).json({
-            message: 'Something is not with the login/signin',
-            user   : user
-        });
+        return res.status(400).json(info); //info has the error information
     }       
     req.login(user, {session: false}, (err) => {
        if (err) {
