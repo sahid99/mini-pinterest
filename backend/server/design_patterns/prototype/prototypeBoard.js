@@ -2,7 +2,6 @@
 
 class prototypeBoard{
     constructor(boardModel){
-        // console.log(boardModel);
         this.boardArray = boardModel;
     }
 
@@ -16,7 +15,7 @@ class prototypeBoard{
             };
             boardsData.push(data);
         });
-        console.log(boardsData);
+        // console.log(boardsData);
         return boardsData;
     }
 }

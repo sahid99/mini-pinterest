@@ -3,7 +3,7 @@ import { returnErrors } from './errorActions';
 import {tokenCheck} from "./authActions";
 
 import {
-    GET_PINS, SAVE_PIN, SEARCH_PINS
+    GET_PINS, SAVE_PIN, SEARCH_PINS, GET_BOARDS
   } from './types';
 
 export const getPins = () => (dispatch, getState) => {
@@ -79,4 +79,14 @@ export const searchPins = (query) => (dispatch, getState) => {
   );
 }
 
-// export const getBoards
+export const getBoards = () => (dispatch, getState) =>{
+  // console.log({user:getState().auth.user});
+  axios.post("http://localhost:4000/api/board/boards", {user: getState().auth.user})
+  .then(res =>{
+    console.log({boards: res.data});
+    dispatch({
+      type: GET_BOARDS,
+      payload: {boards: res.data.boards}
+    })
+  })
+}

@@ -75,7 +75,8 @@ BoardCtrl.savePin = async (req, res) => {
 BoardCtrl.getBoards = (req, res) =>{
     //Here i use promices because gave me error with async/await
     const {user} = req.body;
-
+    // console.log(user);
+    console.log(req.body);
     Board.find({user:user}).then(boards => {
         const boardData = new prototypeBoard(boards);
         return res.json({boards: boardData.clone()});

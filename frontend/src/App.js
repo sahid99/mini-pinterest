@@ -12,6 +12,7 @@ import Search from './components/PinSearch';
 import Test from './components/Test';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
+import Boards from './components/Boards';
 
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
       <Route path="/test" component={Test} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
+      <Route path="/api/board" component={Boards} />
     </Router> 
 
 
