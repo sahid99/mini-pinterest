@@ -1,16 +1,21 @@
 import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import {searchPins} from '../actions/pinActions';
 // import logo from '../static/pinterest_logo.svg'
 
-const Navigation = () => {
+const Navigation = ({
+    searchPins,
+    pinArray
+}) => {
 
     const [search, setSearch] = useState("");
     const handleChangeSearch = (e) => setSearch(e.target.value);
 
     function handleSearch(e){
         e.preventDefault();
-        console.log(search)
+        console.log(search);
+        searchPins(search);
     }
 
     return (
@@ -22,7 +27,7 @@ const Navigation = () => {
             </button>
             <div className="collapse navbar-collapse">
                 <ul className="navbar-nav mr-auto align-items-center">
-                    <form noValidate onSubmit={handleSearch} className="bd-search hidden-sm-down" action="/test">
+                    <form noValidate onSubmit={handleSearch} className="bd-search hidden-sm-down" action="/">
                         <input onChange={handleChangeSearch} type="text" className="form-control bg-graylight border-0 font-weight-bold round-input" placeholder="Buscar"/>
                     </form>
                 </ul>
@@ -38,4 +43,8 @@ const Navigation = () => {
     )
 }
 
-export default connect()(Navigation);
+const mapStateToProps = (state) => ({
+    pinArray: state.pin,
+});
+
+export default connect(mapStateToProps, {searchPins})(Navigation);

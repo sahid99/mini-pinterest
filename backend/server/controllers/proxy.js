@@ -29,7 +29,7 @@ proxy.CuratedList = async () => {
           }        // request headers. format is the identical to that accepted by the Headers constructor (see below)
     };
 
-    return await fetch("https://api.pexels.com/v1/search?query="+ query +"&per_page=3&page=1", options)
+    return await fetch("https://api.pexels.com/v1/search?query="+ query +"&per_page=25&page=1", options)
     .then(res => res.json()) // expecting a json response
     .then(json => {return json});
 };

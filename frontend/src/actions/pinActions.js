@@ -52,7 +52,7 @@ export const savePin = ({api_ID, width, height, url}) => (dispatch, getState) =>
     );
 }
 
-export const searchPins = ({query}) => (dispatch, getState) => {
+export const searchPins = (query) => (dispatch, getState) => {
   axios
   .get("http://localhost:4000/api/pin/search/" + query, tokenCheck(getState))
   .then(res => {
@@ -64,13 +64,14 @@ export const searchPins = ({query}) => (dispatch, getState) => {
         api_ID:pin.id, 
         width: pin.width,
         height: pin.height,
-        url: pin.src.medium
+        url: pin.src.medium,
+        author: pin.photographer
       });
     });
 
     dispatch({
       type: SEARCH_PINS,
-      payload: {pins:pins}
+      payload: {pins:pins, search:true}
     })
   })
   .catch(err =>
