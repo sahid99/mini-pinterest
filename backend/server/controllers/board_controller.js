@@ -3,6 +3,7 @@ const Board = require("../models/board");
 const BoardCtrl = {};
 //function to handle erros with async await
 const to = require('../helpers/to');
+const prototypeBoard = require("../design_patterns/prototype/prototypeBoard");
 
 BoardCtrl.getPins = async (req, res) => {
     let err, board, uniqueName;
@@ -69,5 +70,20 @@ BoardCtrl.savePin = async (req, res) => {
     });
     // console.log(new_board);
 };
+
+
+BoardCtrl.getBoards = (req, res) =>{
+    //Here i use promices because gave me error with async/await
+    const {user} = req.body;
+
+    Board.find({user:user}).then(boards => {
+        const boardData = new prototypeBoard(boards);
+        return res.json({boards: boardData.clone()});
+    })
+    .catch(err => {
+        return res.status(400).json({
+            msg: "Error getting boards"
+    })});
+}
 
 module.exports = BoardCtrl;

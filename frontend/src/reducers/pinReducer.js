@@ -1,9 +1,10 @@
 import {
-    GET_PINS, SAVE_PIN, SEARCH_PINS
+    GET_PINS, SAVE_PIN, SEARCH_PINS, GET_BOARDS
   } from '../actions/types';
 
 const initialState = {
-    board: null,
+    boardName: null,
+    boards: null,
     pins: null,
     search: null
 }
@@ -25,6 +26,11 @@ export default function(state = initialState, action) {
                 pins: action.payload.pins,
                 search: action.payload.search
             };
+        case GET_BOARDS:
+            return{
+                ...state,
+                boards: action.payload.boards
+            }
         default:
             return state;
     }

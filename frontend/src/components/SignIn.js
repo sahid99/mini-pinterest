@@ -18,8 +18,8 @@ const SignIn = ({
 
     function handleClick(e) {    
         e.preventDefault();    
-        console.log('The link was clicked.'); 
-        console.log("Res: ",email, password);
+        // console.log('The link was clicked.'); 
+        // console.log("Res: ",email, password);
         login({email, password});
     }
 

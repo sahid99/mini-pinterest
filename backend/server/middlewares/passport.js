@@ -19,7 +19,6 @@ passport.use(new LocalStrategy({
 }, async (email, password, done) => {
     const user = await User.findOne({email: email});
     
-    
     if(!user){
         return done(null, false, authError.error);
     }

@@ -4,7 +4,7 @@ const BoardCtrl = require("../controllers/board_controller");
 const auth = require("../middlewares/auth");
 
 
-router.get("/", BoardCtrl.getPins);
+router.get("/", BoardCtrl.getBoards);
 // router.post("/board", async (req, res) => {
 //     const new_board = new Board(req.body);
 //     await new_board.save();

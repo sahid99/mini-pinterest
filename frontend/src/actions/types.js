@@ -6,6 +6,8 @@
 export const GET_PINS = "GET_PINS";
 export const SAVE_PIN = "SAVE_PIN";
 export const SEARCH_PINS = "SEARCH_PINS";
+export const LOAD_BOARD = "LOAD_BOARD";
+export const GET_BOARDS = "GET_BOARDS";
 //Types for auth
 export const USER_LOADING = "USER_LOADING";
 export const USER_LOADED = "USER_LOADED";

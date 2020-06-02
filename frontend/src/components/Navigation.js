@@ -2,10 +2,12 @@ import React, {useState, useEffect} from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {searchPins} from '../actions/pinActions';
+import {logout} from '../actions/authActions';
 // import logo from '../static/pinterest_logo.svg'
 
 const Navigation = ({
     searchPins,
+    logout,
     pinArray
 }) => {
 
@@ -14,8 +16,13 @@ const Navigation = ({
 
     function handleSearch(e){
         e.preventDefault();
-        console.log(search);
+        // console.log(search);
         searchPins(search);
+    }
+
+    function handleLogout(e){
+        e.preventDefault();
+        logout();
     }
 
     return (
@@ -36,6 +43,7 @@ const Navigation = ({
                     <li className="nav-item active"><Link className="nav-link" to="/signin">Sign In</Link></li>
                     <li className="nav-item active"><Link className="nav-link" to="/signup">Sign Up</Link></li>
                     <li className="nav-item active"><Link className="nav-link" to="/exit">Exit</Link></li>
+                    <li className="nav-item active" onClick={handleLogout}>Log Out</li>
                 </ul>
             </div>
             
@@ -44,7 +52,7 @@ const Navigation = ({
 }
 
 const mapStateToProps = (state) => ({
-    pinArray: state.pin,
+    pinArray: state.pin
 });
 
-export default connect(mapStateToProps, {searchPins})(Navigation);
+export default connect(mapStateToProps, {searchPins, logout})(Navigation);

@@ -78,3 +78,5 @@ export const searchPins = (query) => (dispatch, getState) => {
     dispatch(returnErrors(err.response.data, err.response.status))
   );
 }
+
+// export const getBoards
