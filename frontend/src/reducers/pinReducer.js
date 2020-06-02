@@ -1,11 +1,11 @@
 import {
-    GET_PINS
+    GET_PINS, SAVE_PIN, SEARCH_PINS
   } from '../actions/types';
 
 const initialState = {
-    boardID: null,
-    didGet: false,
-    result: null
+    board: null,
+    pins: null,
+    search: null
 }
 
 export default function(state = initialState, action) {
@@ -13,8 +13,16 @@ export default function(state = initialState, action) {
         case GET_PINS:
             return {
                 ...state,
-                didGet: true,
-                result: action.payload
+                pins: action.payload.pins
+            };
+        case SAVE_PIN:
+            return {
+                ...state
+            };
+        case SEARCH_PINS:
+            return{
+                ...state,
+                search: action.payload.search
             };
         default:
             return state;

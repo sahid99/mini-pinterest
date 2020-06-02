@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { Link } from 'react-router-dom'
+import React, {useState, useEffect} from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import {tokenCheck, login} from '../actions/authActions';
 
@@ -69,5 +69,5 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated,
     error: state.error
 });
-
+//Conect is the other way of dispatch, like in an automatic way
 export default connect(mapStateToProps, { login })(SignIn);

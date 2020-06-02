@@ -14,7 +14,7 @@ proxy.CuratedList = async () => {
             'Cookie': '__cfduid=d4f8d44257926700aca4ce87e984551771588089554'
           }        // request headers. format is the identical to that accepted by the Headers constructor (see below)
     };
-    return await fetch("https://api.pexels.com/v1/curated?per_page=15&page=1", options)
+    return await fetch("https://api.pexels.com/v1/curated?per_page=25&page=1", options)
     .then(res => res.json()) // expecting a json response
     .then(json => {return json});
 }
