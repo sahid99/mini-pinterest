@@ -101,3 +101,7 @@ export const tokenCheck = (getState) => {
     return config;
   };
 
+  export const getUser = () => (dispatch, getState) =>{
+    const userName = getState().auth;
+    return userName;
+  }

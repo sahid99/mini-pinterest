@@ -1,14 +1,18 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import {getBoards} from '../actions/pinActions';
+import {getUser} from '../actions/authActions';
 import BoardCard from './BoardCard';
 
 const Boards = ({
+    currentUser,
+    getUser, 
     getBoards,
     boardArray
 }) =>{
     useEffect(() => {
         getBoards();
+        getUser();
     }, []);
 
     // function handleClick(e){
@@ -17,11 +21,11 @@ const Boards = ({
     // }
 
     const {boards} = boardArray;
-
+    const {user} = currentUser;
     return (
         <div className="container-fluid">
             <div className="jumbotron">
-                <h1>Boards</h1>
+                <h1>{user ? user : ""}</h1>
             </div>
             <div className="row">
                 <div className="card-columns">
@@ -42,6 +46,7 @@ const Boards = ({
 
 const mapStateToProps = (state) => ({
     boardArray: state.pin,
+    currentUser: state.auth
 });
 
-export default connect(mapStateToProps, { getBoards })(Boards);
+export default connect(mapStateToProps, { getBoards, getUser })(Boards);
