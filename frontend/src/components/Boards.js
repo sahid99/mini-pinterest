@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { connect } from 'react-redux';
 import {getBoards} from '../actions/pinActions';
+import BoardCard from './BoardCard';
 
 const Boards = ({
     getBoards,
@@ -10,16 +11,33 @@ const Boards = ({
         getBoards();
     }, []);
 
-    function handleClick(e){
-        e.preventDefault();
-        getBoards();
-    }
+    // function handleClick(e){
+    //     e.preventDefault();
+    //     getBoards();
+    // }
 
     const {boards} = boardArray;
 
     return (
-        <div><h1>Hey</h1><button onClick={handleClick}>Click</button></div>
-    );
+        <div className="container-fluid">
+            <div className="jumbotron">
+                <h1>Boards</h1>
+            </div>
+            <div className="row">
+                <div className="card-columns">
+                        {/* The if is for avoiding to crash because for a short time pins is null */}
+                        { boards ?
+                            boards.map(board =>
+                            (
+                                <BoardCard
+                                bName = {board.name}
+                                pins = {board.pins}
+                            />))
+                        : ""}
+                </div>
+            </div>
+        </div>
+    )
 };
 
 const mapStateToProps = (state) => ({

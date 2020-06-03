@@ -39,11 +39,11 @@ const Navigation = ({
                     </form>
                 </ul>
                 <ul className="navbar-nav ml-auto">
-                    <li className="nav-item"><Link className="nav-link" to="/test">Test</Link></li>
+                    <li className="nav-item"><Link className="nav-link" to="/api/board">Boards</Link></li>
                     <li className="nav-item active"><Link className="nav-link" to="/signin">Sign In</Link></li>
                     <li className="nav-item active"><Link className="nav-link" to="/signup">Sign Up</Link></li>
-                    <li className="nav-item active"><Link className="nav-link" to="/exit">Exit</Link></li>
-                    <li className="nav-item active" onClick={handleLogout}>Log Out</li>
+                    <li className="nav-item active" onClick={handleLogout}><Link className="nav-link" to="#">Exit</Link></li>
+                    {/* <li className="nav-item active" onClick={handleLogout}><Link className="nav-link" to="/exit">Exit</Link></li></li> */}
                 </ul>
             </div>
             

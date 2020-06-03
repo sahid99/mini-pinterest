@@ -8,7 +8,6 @@ import './App.css';
 
 import Navigation from './components/Navigation';
 import RandomPin from './components/RandomPin';
-import Search from './components/PinSearch';
 import Test from './components/Test';
 import SignIn from './components/SignIn';
 import SignUp from './components/SignUp';
@@ -20,7 +19,6 @@ function App() {
     <Router>
       <Navigation/>
       <Route path="/" exact component={RandomPin} />
-      <Route path="/api/pin/search/:query" component={Search} />
       <Route path="/test" component={Test} />
       <Route path="/signin" component={SignIn} />
       <Route path="/signup" component={SignUp} />
